@@ -2,32 +2,408 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ABC Insurance Cloud Service</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f4f7fb;
+            color: #1f2937;
+            line-height: 1.6;
+        }
+
+        header {
+            background: linear-gradient(135deg, #0f172a, #1d4ed8);
+            color: white;
+            padding: 60px 10%;
+            text-align: left;
+        }
+
+        header .badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.15);
+            padding: 8px 14px;
+            border-radius: 999px;
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+
+        header h1 {
+            font-size: 42px;
+            max-width: 900px;
+            margin-bottom: 20px;
+        }
+
+        header p {
+            font-size: 18px;
+            max-width: 850px;
+            color: #dbeafe;
+        }
+
+        nav {
+            background: white;
+            padding: 16px 10%;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        nav a {
+            margin-right: 24px;
+            text-decoration: none;
+            color: #1d4ed8;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        section {
+            padding: 50px 10%;
+        }
+
+        .section-title {
+            font-size: 28px;
+            color: #0f172a;
+            margin-bottom: 12px;
+        }
+
+        .section-desc {
+            max-width: 850px;
+            color: #4b5563;
+            margin-bottom: 30px;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            gap: 22px;
+        }
+
+        .card {
+            background: white;
+            padding: 26px;
+            border-radius: 16px;
+            box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+            border: 1px solid #e5e7eb;
+        }
+
+        .card h3 {
+            color: #1d4ed8;
+            margin-bottom: 10px;
+            font-size: 20px;
+        }
+
+        .card p {
+            color: #4b5563;
+            font-size: 15px;
+        }
+
+        .status-box {
+            background: #ecfdf5;
+            border: 1px solid #86efac;
+            color: #166534;
+            padding: 24px;
+            border-radius: 16px;
+            margin-top: 20px;
+        }
+
+        .status-box strong {
+            display: block;
+            font-size: 20px;
+            margin-bottom: 8px;
+        }
+
+        .workflow {
+            background: white;
+            border-radius: 18px;
+            padding: 30px;
+            box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+        }
+
+        .step {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 20px;
+        }
+
+        .step-number {
+            min-width: 36px;
+            height: 36px;
+            background: #1d4ed8;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+        }
+
+        .step h4 {
+            color: #0f172a;
+            margin-bottom: 4px;
+        }
+
+        .step p {
+            color: #4b5563;
+        }
+
+        .highlight {
+            background: #eff6ff;
+            border-left: 5px solid #1d4ed8;
+            padding: 24px;
+            border-radius: 12px;
+            margin-top: 20px;
+        }
+
+        footer {
+            background: #0f172a;
+            color: #cbd5e1;
+            padding: 30px 10%;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        .tag {
+            display: inline-block;
+            background: #dbeafe;
+            color: #1e40af;
+            padding: 6px 10px;
+            border-radius: 999px;
+            margin: 4px 4px 4px 0;
+            font-size: 13px;
+            font-weight: bold;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 30px;
+            }
+
+            nav a {
+                display: inline-block;
+                margin-bottom: 8px;
+            }
+        }
+    </style>
 </head>
+
 <body>
-    <h1>ABC Insurance Digital Claims and Document Routing Service</h1>
 
-    <p>
-        This cloud-based application confirms that ABC Insurance SDN BHD has successfully
-        deployed a basic cloud service for its digital transformation.
-    </p>
+    <header>
+        <div class="badge">SWE309 Cloud Computing Practical Deployment</div>
+        <h1>ABC Insurance Digital Claims and Document Routing Service</h1>
+        <p>
+            A cloud-based demonstration service for ABC Insurance SDN BHD, supporting
+            insurance claim processing, signed policy digitisation, physical mail routing,
+            procurement records, stock tracking, and multi-branch access.
+        </p>
+    </header>
 
-    <p>
-        The service supports insurance and logistics-related operations, including medical
-        and vehicle claim evidence submission, signed policy digitisation, physical mail
-        sorting, and document routing across multiple branches.
-    </p>
+    <nav>
+        <a href="#overview">Overview</a>
+        <a href="#services">Services</a>
+        <a href="#workflow">Workflow</a>
+        <a href="#cloud">Cloud Deployment</a>
+        <a href="#analytics">Hadoop Analytics</a>
+    </nav>
 
-    <h2>Supported Operations</h2>
-    <ul>
-        <li>Medical and vehicle claim evidence upload</li>
-        <li>Signed policy digitisation</li>
-        <li>Physical mail sorting and document routing</li>
-        <li>Procurement and stock tracking support</li>
-        <li>Multi-branch access for 24-hour operations</li>
-    </ul>
+    <section id="overview">
+        <h2 class="section-title">Project Overview</h2>
+        <p class="section-desc">
+            ABC Insurance SDN BHD is treated as a large-scale insurance company with
+            logistics-related operations. The purpose of this cloud service is to demonstrate
+            how the organisation can begin migrating from hardcopy-based legacy processes
+            to a digital, cloud-hosted workflow.
+        </p>
 
-    <h2>Cloud Deployment Status</h2>
-    <p>Status: Running successfully on cloud platform.</p>
+        <div class="cards">
+            <div class="card">
+                <h3>Business Context</h3>
+                <p>
+                    The company operates across Kuala Lumpur, Terengganu, Johor, Penang,
+                    Sabah, and Sarawak, with vehicle and medical insurance services.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>Cloud Migration Goal</h3>
+                <p>
+                    The system supports digital transformation by reducing manual document
+                    handling and improving access to operational information.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>Hybrid Cloud Direction</h3>
+                <p>
+                    SaaS can support standard HR and procurement, PaaS can support custom
+                    claim workflows, and managed analytics can support decision-making.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section id="services">
+        <h2 class="section-title">Supported Digital Operations</h2>
+        <p class="section-desc">
+            This demonstration page represents the initial cloud service interface for the
+            organisation's insurance and document-logistics workflows.
+        </p>
+
+        <div class="cards">
+            <div class="card">
+                <h3>Claim Evidence Upload</h3>
+                <p>
+                    Supports future upload of medical bills, police reports, vehicle damage
+                    photos, and other claim-related supporting documents.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>Signed Policy Digitisation</h3>
+                <p>
+                    Allows signed policy documents to be scanned, stored, tagged, and
+                    linked to the correct customer or claim record.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>Document Routing</h3>
+                <p>
+                    Helps route physical mail, scanned evidence, and claim documents to
+                    the correct branch, department, or claims officer.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>Procurement and Stock Tracking</h3>
+                <p>
+                    Supports the future tracking of procurement requests, courier receipts,
+                    stock movements, and internal operational resources.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section id="workflow">
+        <h2 class="section-title">Proposed Workflow</h2>
+        <p class="section-desc">
+            The following workflow shows how ABC Insurance can gradually move from
+            physical documents to a cloud-supported digital process.
+        </p>
+
+        <div class="workflow">
+            <div class="step">
+                <div class="step-number">1</div>
+                <div>
+                    <h4>Document Collection</h4>
+                    <p>Branches receive claim forms, medical bills, police reports, signed policies, and courier receipts.</p>
+                </div>
+            </div>
+
+            <div class="step">
+                <div class="step-number">2</div>
+                <div>
+                    <h4>Digitisation and Metadata Tagging</h4>
+                    <p>Documents are scanned and tagged with claim ID, branch, date, document type, and handling status.</p>
+                </div>
+            </div>
+
+            <div class="step">
+                <div class="step-number">3</div>
+                <div>
+                    <h4>Cloud Storage and Routing</h4>
+                    <p>Files are securely stored and routed to the correct claims, procurement, HR, or logistics team.</p>
+                </div>
+            </div>
+
+            <div class="step">
+                <div class="step-number">4</div>
+                <div>
+                    <h4>Analytics and Decision-Making</h4>
+                    <p>Historical data can be analysed to identify claim delays, routing bottlenecks, and branch workload trends.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="cloud">
+        <h2 class="section-title">Cloud Deployment Status</h2>
+        <p class="section-desc">
+            This website has been deployed as a practical cloud implementation using
+            Azure Static Web Apps.
+        </p>
+
+        <div class="status-box">
+            <strong>Status: Running Successfully on Azure Static Web Apps</strong>
+            The application is publicly accessible through an HTTPS endpoint and demonstrates
+            broad network access for multi-branch cloud service delivery.
+        </div>
+
+        <div class="highlight">
+            <h3>Potential Scaling Option</h3>
+            <p>
+                In the future, the static front end can be extended with Azure Functions as a
+                serverless backend API and Azure Storage for uploaded claim evidence. This
+                allows the front end, backend logic, and storage layer to scale separately when
+                claim submissions or document-routing requests increase.
+            </p>
+        </div>
+    </section>
+
+    <section id="analytics">
+        <h2 class="section-title">Conceptual Hadoop / Spark Analytics Layer</h2>
+        <p class="section-desc">
+            A Hadoop or Spark-compatible analytical layer can support long-term data analysis
+            when ABC Insurance needs to process large volumes of structured and unstructured
+            operational data.
+        </p>
+
+        <div class="cards">
+            <div class="card">
+                <h3>Data Sources</h3>
+                <p>
+                    Claim forms, medical bills, police reports, vehicle photos, signed policies,
+                    procurement logs, stock records, and branch workload data.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>Processing Layer</h3>
+                <p>
+                    Hadoop, Spark, Hive, or Spark SQL can process large historical datasets for
+                    batch analytics and cross-branch reporting.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>Management Output</h3>
+                <p>
+                    Dashboards can show claim turnaround time, document routing delays,
+                    procurement trends, and branch workload differences.
+                </p>
+            </div>
+        </div>
+
+        <div class="highlight">
+            <h3>Note</h3>
+            <p>
+                This website is a demonstration for coursework purposes. It does not process
+                real customer data, and a live Hadoop cluster has not been provisioned at this stage.
+            </p>
+        </div>
+    </section>
+
+    <footer>
+        SWE309 Introduction of Cloud Computing | ABC Insurance Cloud Service Demonstration
+    </footer>
+
 </body>
 </html>
